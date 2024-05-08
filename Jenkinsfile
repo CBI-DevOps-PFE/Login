@@ -3,22 +3,23 @@ pipeline {
 
     environment {
         dockerImage = ''
-        registry = 'bounajia/Login:latest'
+        registry = 'bounajia/login:latest'
         registryCredential = 'dockerhub_id'
     }
 
     stages {
         stage('checkout') {
             steps {
-                checkout([$class: 'GitSCM', branches: [[name: '*/main']], userRemoteConfigs: [[url: 'https://github.com/CBI-DevOps-PFE/Login.git']]])
+                script {
+                    checkout([$class: 'GitSCM', branches: [[name: '*/main']], userRemoteConfigs: [[url: 'https://github.com/CBI-DevOps-PFE/Login.git']]])
+                }
             }
         }
 
         stage('build docker img') {
             steps {
                 script {
-                    docker build -t bounajia/login:latest --build-arg JAR_FILE=target/Login.jar .
-
+                    sh "docker build -t bounajia/login:latest --build-arg JAR_FILE=target/Login.jar ."
                 }
             }
         }
@@ -27,7 +28,6 @@ pipeline {
             steps {
                 script {
                     // Add test commands or scripts here
-                    sh 'echo "Running tests"'
                 }
             }
         }
