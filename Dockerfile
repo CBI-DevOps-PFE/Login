@@ -5,7 +5,7 @@ FROM openjdk:17-jre-slim
 WORKDIR /app
 
 # Copy the packaged JAR file into the container at /app
-COPY target/your-application.jar /app/your-application.jar
+COPY . .
 
 # Specify the command to run your application
 CMD ["java", "-jar", "Login.jar"]
