@@ -8,4 +8,4 @@ WORKDIR /app
 COPY target/your-application.jar /app/your-application.jar
 
 # Specify the command to run your application
-CMD ["java", "-jar", "your-application.jar"]
+CMD ["java", "-jar", "Login.jar"]
