@@ -5,11 +5,9 @@ FROM openjdk:17-oracle
 WORKDIR /app
 
 # Copy the packaged JAR file into the container at /app
-<<<<<<< HEAD
+
 COPY . .
-=======
-COPY target/Login.jar /app/Login.jar
->>>>>>> e176ee7e6a965bdc8d02eb7ac38aa1de53f3d225
+
 
 # Specify the command to run your application
 CMD ["java", "-jar", "Login.jar"]
