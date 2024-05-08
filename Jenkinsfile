@@ -17,9 +17,8 @@ pipeline {
         stage('build docker img') {
             steps {
                 script {
-                    docker build -t bounajia/login:latest --build-arg JAR_FILE=target/Login.jar .
-
-                }
+                  dockerImage = docker.build(registry.toLowerCase(), '--build-arg JAR_FILE=target/Login.jar .')
+              }
             }
         }
 
