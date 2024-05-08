@@ -1,12 +1,12 @@
 pipeline {
     agent any
-
+    
     environment {
         dockerImage = ''
         registry = 'bounajia/Login:latest'
         registryCredential = 'dockerhub_id'
     }
-
+    
     stages {
         stage('checkout') {
             steps {
@@ -17,8 +17,9 @@ pipeline {
         stage('build docker img') {
             steps {
                 script {
-                   dockerImage = docker.build(registry.toLowerCase(), "--build-arg JAR_FILE=/app/target/Login.jar .")
-              }
+                    // Build Docker image and tag it with the Docker image name
+                    dockerImage = docker.build(registry.toLowerCase(), "--build-arg JAR_FILE=/app/target/Login.jar .")
+                }
             }
         }
 
@@ -34,6 +35,7 @@ pipeline {
         stage('uploading img') {
             steps {
                 script {
+                    // Push Docker image to Docker registry
                     docker.withRegistry('', registryCredential) {
                         dockerImage.push()
                     }
