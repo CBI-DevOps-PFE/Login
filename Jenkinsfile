@@ -17,7 +17,7 @@ pipeline {
         stage('build docker img') {
             steps {
                 script {
-                  dockerImage = docker.build(registry.toLowerCase(), '--build-arg JAR_FILE=target/Login.jar .')
+                   dockerImage = docker.build(registry.toLowerCase(), "--build-arg JAR_FILE=/app/target/Login.jar .")
               }
             }
         }
