@@ -10,4 +10,4 @@ COPY . .
 
 
 # Specify the command to run your application
-CMD ["java", "-jar", "Login.jar"]
+CMD ["java", "-jar", "spring-boot-spring-security-jwt-authentication-0.0.1-SNAPSHOT.jar"]
