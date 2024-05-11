@@ -10,4 +10,4 @@ COPY . .
 
 
 # Specify the command to run your application
-CMD ["java", "-jar", "spring-boot-security-jwt-0.0.1-SNAPSHOT.jar"]
+ENTRYPOINT ["java", "-jar", "spring-boot-security-jwt-0.0.1-SNAPSHOT.jar"]
