@@ -6,7 +6,7 @@ WORKDIR /app
 
 # Copy the packaged JAR file into the container at /app
 
-COPY target/spring-boot-security-jwt-0.0.1-SNAPSHOT.jar /app
+COPY target/spring-boot-security-jwt-0.0.1-SNAPSHOT.jar /app/spring-boot-security-jwt-0.0.1-SNAPSHOT.jar
 
 
 # Specify the command to run your application
