@@ -19,8 +19,9 @@ pipeline {
             steps {
                 script {
                     // Build Docker image and tag it with the Docker image name
-                    dockerImage = docker.build(registry, "--build-arg JAR_FILE=/app/target/spring-boot-security-jwt-0.0.1-SNAPSHOT.jar .")
-                }
+//                     dockerImage = docker.build(registry, "--build-arg JAR_FILE=/app/target/spring-boot-security-jwt-0.0.1-SNAPSHOT.jar .")
+                       sh 'docker build -t bounajia/login:latest .'
+  }
             }
         }
 
