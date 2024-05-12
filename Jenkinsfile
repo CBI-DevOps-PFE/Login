@@ -1,10 +1,7 @@
 pipeline {
     agent any
 
-    tools{
-         maven 'Maven 3.8.1'
-
-    }
+   
     environment {
         dockerImage = ''
         registry = 'bounajia/Login:latest'
