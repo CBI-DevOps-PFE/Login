@@ -5,7 +5,7 @@ FROM openjdk:17-oracle
 WORKDIR /app
 
 # Copy the packaged JAR file into the container at /app
-ADD target/spring-boot-security-jwt-0.0.1-SNAPSHOT.jar spring-boot-security-jwt-0.0.1-SNAPSHOT.jar
+ADD . .
 
 # Specify the command to run your application
-ENTRYPOINT ["java", "-jar", "/spring-boot-security-jwt-0.0.1-SNAPSHOT.jar"]
+ENTRYPOINT ["java", "-jar", "target/spring-boot-security-jwt-0.0.1-SNAPSHOT.jar"]
