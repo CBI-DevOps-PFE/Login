@@ -18,7 +18,7 @@ pipeline {
             steps {
                 script {
                     // Build Docker image and tag it with the Docker image name
-                    dockerImage = docker.build(registry.toLowerCase(), "--build-arg JAR_FILE=/app/target/Login.jar .")
+                    dockerImage = docker.build(registry.toLowerCase(), "--build-arg JAR_FILE=/app/target/spring-boot-security-jwt-0.0.1-SNAPSHOT.jar .")
                 }
             }
         }
