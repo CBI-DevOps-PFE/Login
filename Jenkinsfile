@@ -3,15 +3,15 @@ pipeline {
     
     environment {
         dockerImage = ''
-        registry = 'bounajia/login:latest'
+        registry = 'bounajia/Login:latest'
         registryCredential = 'dockerhub_id'
     }
 
     stages {
         stage('checkout') {
             steps {
-                // Checkout the source code from Git
-                git branch: 'main', url: 'https://github.com/CBI-DevOps-PFE/Login.git'
+                checkout([$class: 'GitSCM', branches: [[name: '*/main']], userRemoteConfigs: [[url: 'https://github.com/CBI-DevOps-PFE/Login.git']]])
+                sh 'mvn clean install'
             }
         }
 
@@ -19,9 +19,9 @@ pipeline {
             steps {
                 script {
                     // Build Docker image and tag it with the Docker image name
-//                     dockerImage = docker.build(registry, "--build-arg JAR_FILE=/app/target/spring-boot-security-jwt-0.0.1-SNAPSHOT.jar .")
+//                     dockerImage = docker.build(registry.toLowerCase(), "--build-arg JAR_FILE=/app/target/Login.jar .")
                        sh 'docker build -t bounajia/login:latest .'
-  }
+                }
             }
         }
 
