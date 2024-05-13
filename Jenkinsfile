@@ -22,8 +22,8 @@ pipeline {
             steps {
                 script {
                     // Build Docker image and tag it with the Docker image name
-                    dockerImage = docker.build(registry.toLowerCase())
-//                        sh 'docker build -t bounajia/login:latest .'
+//                     dockerImage = docker.build(registry.toLowerCase())
+                       sh 'docker build -t bounajia/login:latest .'
                 }
             }
         }
@@ -42,7 +42,8 @@ pipeline {
                 script {
                     // Push Docker image to Docker registry
                     docker.withRegistry('', registryCredential) {
-                        dockerImage.push()
+//                         dockerImage.push()
+                    sh 'docker push bounajia/login:latest '
                     }
                 }
             }
